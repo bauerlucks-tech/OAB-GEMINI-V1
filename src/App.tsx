@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Stage, Layer, Image as KonvaImage, Text, Rect, Transformer } from 'react-konva';
 import useImage from 'use-image';
 import { jsPDF } from 'jspdf';
-import { LayoutTemplate, Settings, Download, Plus, Image as ImageIcon, Type, Trash2, Upload } from 'lucide-react';
+import { LayoutTemplate, Settings, Download, Image as ImageIcon, Type, Trash2, Upload } from 'lucide-react';
 
 type FieldType = 'texto' | 'foto';
 
@@ -75,7 +75,7 @@ const Workspace = ({
                       const newFields = fields.map(f => f.id === field.id ? { ...f, x: e.target.x(), y: e.target.y() } : f);
                       setFields(newFields);
                     }}
-                    onTransformEnd={(e) => {
+                    onTransformEnd={() => {
                       const node = shapeRefs.current[field.id];
                       const scaleX = node.scaleX();
                       const scaleY = node.scaleY();
